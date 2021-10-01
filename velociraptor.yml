@@ -42,7 +42,7 @@ scripts:
     env:
       VR_HOOKS: "false"
     cmd: |
-      FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
+      # FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
           echo "post-- $FILES"
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs git add &&
