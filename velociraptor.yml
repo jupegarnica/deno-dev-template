@@ -51,6 +51,7 @@ scripts:
     desc: Lints and formats staged files
     cmd: |
       FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+          echo $FILES;
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
