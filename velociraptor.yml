@@ -13,13 +13,15 @@ scripts:
     cmd: main.ts
 
   server:
-    desc: Starts local server
+    desc: Starts deploy server
     cmd: server.ts
     watch: true
     allow:
       - read
       - net
       - env
+
+  docs: google-chrome https://doc.deno.land/builtin/stable
 
   deps:
     desc: Update dependencies with ensuring pass tests
