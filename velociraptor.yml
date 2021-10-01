@@ -36,6 +36,8 @@ scripts:
     cmd: deno fmt --ignore=cov_profile
 
   post-commit:
+    env:
+      GIT_HOOKS: false
     cmd: |
       FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
           [ -z "$FILES" ] && exit 0
