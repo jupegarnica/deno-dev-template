@@ -43,6 +43,7 @@ scripts:
       VR_HOOKS: "false"
     cmd: |
       FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
+          echo "post-- $FILES"
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs git add &&
           git commit -m "format: apply auto format"
@@ -51,6 +52,7 @@ scripts:
     desc: Lints and formats staged files
     cmd: |
       export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.{ts,js}")
+          echo "pre-- $FILES"
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
