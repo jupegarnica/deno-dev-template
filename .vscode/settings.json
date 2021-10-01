@@ -1,20 +1,26 @@
 {
     "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#1878c0",
-        "activityBar.activeBorder": "#f18ec6",
-        "activityBar.background": "#1878c0",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#f18ec6",
-        "activityBarBadge.foreground": "#15202b",
-        "statusBar.background": "#125c93",
-        "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#1878c0",
-        "titleBar.activeBackground": "#125c93",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#125c9399",
-        "titleBar.inactiveForeground": "#e7e7e799"
+      "activityBar.activeBackground": "#1b6bcf",
+      "activityBar.activeBorder": "#710f3a",
+      "activityBar.background": "#1b6bcf",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#710f3a",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "statusBar.background": "#1554a2",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#1b6bcf",
+      "titleBar.activeBackground": "#1554a2",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#1554a299",
+      "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#125c93",
-    "peacock.remoteColor": "#1554a2"
+    "peacock.remoteColor": "#1554a2",
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": true,
+    "deno.suggest.imports.hosts": {
+      "https://deno.land/": true
+    },
 }

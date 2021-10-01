@@ -17,5 +17,5 @@
 		"umbo.vscode-velociraptor"
 	],
     "remoteUser": "vscode",
-    // "onCreateCommand": "vr"
+    "onCreateCommand": "vr"
 }
