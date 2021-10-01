@@ -37,9 +37,9 @@ scripts:
 
   post-commit:
     env:
-      GIT_HOOKS: false
+      GIT_HOOKS: "false"
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.*")
+      FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
           echo "$FILES"
           [ -z "$FILES" ] && echo 'no files to commit' && exit 0
           echo "$FILES" | xargs git add &&
