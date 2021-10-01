@@ -37,21 +37,20 @@ scripts:
     desc: Runs format
     cmd: deno fmt --ignore=cov_profile
 
-  # post-commit:
-  #   desc: Commit formatted files
-  #   env:
-  #     VR_HOOKS: "false"
-  #   cmd: |
-  #     FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
-  #         [ -z "$FILES" ] && exit 0
-  #         echo "$FILES" | xargs git add &&
-  #         git commit -m "format: apply auto format"
-  #   gitHook: post-commit
+  post-commit:
+    desc: Commit formatted files
+    env:
+      VR_HOOKS: "false"
+    cmd: |
+      FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs git add &&
+          git commit -m "format: apply auto format"
+    gitHook: post-commit
   pre-commit:
     desc: Lints and formats staged files
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.{ts,js}")
-          echo $FILES;
+      export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.{ts,js}")
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
