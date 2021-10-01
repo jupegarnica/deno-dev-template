@@ -48,7 +48,7 @@ scripts:
   #   gitHook: post-commit
   pre-commit:
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+      export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
