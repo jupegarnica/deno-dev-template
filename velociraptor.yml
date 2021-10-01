@@ -89,11 +89,10 @@ scripts:
 
   post-commit:
       cmd: |
-
-            echo "post-- $FOO"
-
+            echo "post-commit FOO: $FOO"
       gitHook: post-commit
   pre-commit:
     cmd: |
        source getStagedFiles.sh
+       echo "pre-commit FOO: $FOO"
     gitHook: pre-commit
