@@ -95,6 +95,5 @@ scripts:
       gitHook: post-commit
   pre-commit:
     cmd: |
-      source getStagedFiles.sh
-
+       source getStagedFiles.sh
     gitHook: pre-commit
