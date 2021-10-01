@@ -76,7 +76,7 @@ scripts:
       - vr test
 
   commitlint:
-    cmd: echo -- ${GIT_ARGS[1]}; echo ${GIT_ARGS}
+    cmd: echo -- ${GIT_ARGS[1]}; echo --- ${GIT_ARGS}
     # cmd: commitlint -x @commitlint/config-conventional -e
     # ${GIT_ARGS[1]}
     # cmd: deno run --allow-env commitlint.ts
