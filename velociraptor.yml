@@ -48,11 +48,10 @@ scripts:
   #   gitHook: post-commit
   pre-commit:
     cmd: |
-      export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.*");
-      echo $FILES;
-          # [ -z "$FILES" ] && exit 0
-          # echo "$FILES" | xargs deno lint &&
-          # echo "$FILES" | xargs deno fmt  &&
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs deno lint
+          echo "$FILES" | xargs deno fmt
           # echo "$FILES" | xargs git add
     desc: Lints and formats staged files
     gitHook: pre-commit
