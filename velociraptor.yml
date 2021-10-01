@@ -50,7 +50,7 @@ scripts:
   pre-commit:
     desc: Lints and formats staged files
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.{ts,js}")
           echo $FILES;
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
