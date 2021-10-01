@@ -37,27 +37,29 @@ scripts:
     desc: Runs format
     cmd: deno fmt --ignore=cov_profile
 
-  post-commit:
-    desc: Commit formatted files
-    env:
-      VR_HOOKS: "false"
-    cmd: |
-      # FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
-          echo "post-- $FILES"
-          [ -z "$FILES" ] && exit 0
-          echo "$FILES" | xargs git add &&
-          git commit -m "format: apply auto format"
-    gitHook: post-commit
-  pre-commit:
-    desc: Lints and formats staged files
-    cmd: |
-      export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
-          echo "pre-- $FILES"
-          [ -z "$FILES" ] && exit 0
-          echo "$FILES" | xargs deno lint
-          echo "$FILES" | xargs deno fmt
-          # echo "$FILES" | xargs git add
-    gitHook: pre-commit
+  # post-commit:
+  #   desc: Commit formatted files
+  #   env:
+  #     VR_HOOKS: "false"
+  #   cmd: |
+  #     FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
+  #         echo "post-- $FILES"
+  #         [ -z "$FILES" ] && exit 0
+  #         echo "$FILES" | xargs git add &&
+  #         git commit -m "format: apply auto format"
+  #   gitHook: post-commit
+  # pre-commit:
+  #   desc: Lints and formats staged files
+  #   cmd: |
+  #     export FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+  #         echo "pre-- $FILES"
+  #         [ -z "$FILES" ] && exit 0
+  #         echo "$FILES" | xargs deno lint
+  #         echo "$FILES" | xargs deno fmt
+  #         # echo "$FILES" | xargs git add
+  #   gitHook: pre-commit
+
+
 
   test:
     desc: Runs the tests
@@ -83,3 +85,17 @@ scripts:
     # ${GIT_ARGS[1]}
     cmd: deno run --allow-read="./.git" commitlint.ts
     gitHook: commit-msg
+
+
+  post-commit:
+      cmd: |
+
+            echo "post-- $TEST"
+
+      gitHook: post-commit
+  pre-commit:
+    cmd: |
+      export TEST='hello from pre';
+      echo "pre-- $TEST";
+
+    gitHook: pre-commit
