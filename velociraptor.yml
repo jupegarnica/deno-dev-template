@@ -89,7 +89,7 @@ scripts:
 
   post-commit:
       cmd: |
-            echo "post-commit FOO: $FOO"
+       echo "post-commit FOO: $FOO"
       gitHook: post-commit
   pre-commit:
     cmd: |
