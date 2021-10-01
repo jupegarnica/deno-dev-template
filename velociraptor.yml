@@ -39,9 +39,9 @@ scripts:
     env:
       GIT_HOOKS: false
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
-          [ -z "$FILES" ] && exit 0
-          echo "$FILES" | xargs git add
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.*")
+          [ -z "$FILES" ] && echo 'no files to commit' && exit 0
+          echo "$FILES" | xargs git add &&
           git commit -m "format: apply auto format"
     desc: Commit formated files
     gitHook: post-commit
