@@ -39,7 +39,7 @@ scripts:
 
   post-commit:
     env:
-      GIT_HOOKS: "false"
+      VR_HOOKS: "false"
     cmd: |
       FILES=$(git diff --name-only --diff-filter=ACMR "*.*")
           [ -z "$FILES" ] && echo 'no files formated' && exit 0
@@ -79,10 +79,11 @@ scripts:
     # dependencies: commitlint and @commitlint/config-conventional
     # yarn global add commitlint @commitlint/config-conventional
     # desc: Checks commit messages format with commitlint
-    cmd: echo "commitlint -x @commitlint/config-conventional -e ${GIT_ARGS[1]}"
+    cmd: echo  "-- ${GIT_ARGS[1]}   --"
+      # - commitlint -x @commitlint/config-conventional -e ${GIT_ARGS[1]}
     gitHook: commit-msg
     # desc: Checks commit messages format with commitlint
     # cmd:
     #   - echo $GIT_ARGS
-    #   - deno run commitlint.ts ${GIT_ARGS[1]}
+    #   - echo "${GIT_ARGS[1]}" | xargs deno run commitlint.ts
     # gitHook: commit-msg
