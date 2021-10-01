@@ -80,5 +80,4 @@ scripts:
     # cmd: commitlint -x @commitlint/config-conventional -e
     # ${GIT_ARGS[1]}
     # cmd: deno run --allow-env commitlint.ts
-
     gitHook: commit-msg
