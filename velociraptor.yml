@@ -35,6 +35,14 @@ scripts:
     desc: Runs format
     cmd: deno fmt --ignore=cov_profile
 
+  post-commit:
+    cmd: |
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs git add
+          git commit -m "format: apply auto format"
+    desc: Commit formated files
+    gitHook: post-commit
   pre-commit:
     cmd: |
       FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
