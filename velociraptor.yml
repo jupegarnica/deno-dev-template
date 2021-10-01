@@ -23,7 +23,7 @@ scripts:
 
   docs:
     - echo "visit https://doc.deno.land/builtin/stable"
-    - google-chrome https://doc.deno.land/builtin/stable
+    - google-chrome https://doc.deno.land/builtin/stable || sh $BROWSER https://doc.deno.land/builtin/stable
 
   deps:
     desc: Update dependencies with ensuring pass tests
@@ -76,14 +76,9 @@ scripts:
       - vr test
 
   commitlint:
-    # dependencies: commitlint and @commitlint/config-conventional
-    # yarn global add commitlint @commitlint/config-conventional
-    # desc: Checks commit messages format with commitlint
-    cmd: echo  ${GIT_ARGS[1]}
-      # - commitlint -x @commitlint/config-conventional -e ${GIT_ARGS[1]}
+    cmd: echo ${GIT_ARGS[1]}; echo ${GIT_ARGS}
+    # cmd: commitlint -x @commitlint/config-conventional -e
+    # ${GIT_ARGS[1]}
+    # cmd: deno run --allow-env commitlint.ts
+
     gitHook: commit-msg
-    # desc: Checks commit messages format with commitlint
-    # cmd:
-    #   - echo $GIT_ARGS
-    #   - echo "${GIT_ARGS[1]}" | xargs deno run commitlint.ts
-    # gitHook: commit-msg

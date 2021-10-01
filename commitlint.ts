@@ -1,7 +1,7 @@
 import { parse } from "https://deno.land/x/commit/mod.ts";
 
 const text = Deno.args[0];
-console.log(Deno.args);
+console.log(Deno.env.get("GIT_ARGS"));
 
 const commit = parse(text);
 /* {
