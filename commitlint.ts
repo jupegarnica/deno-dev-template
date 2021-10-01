@@ -1,22 +1,8 @@
 import { parse } from "https://deno.land/x/commit/mod.ts";
 
-const text = Deno.args[0];
-console.log(Deno.env.get("GIT_ARGS"));
+const text = Deno.readTextFileSync("./.git/COMMIT_EDITMSG");
 
 const commit = parse(text);
-/* {
-  type: "fix",
-  scope: "std/io",
-  subject: "utf-8 encoding",
-  merge: null,
-  header: "fix(std/io): utf-8 encoding",
-  body: null,
-  footer: null,
-  notes: [],
-  references: [],
-  mentions: [],
-  revert: null
-} */
 
 if (!commit.type) {
   console.error("invalid type");
