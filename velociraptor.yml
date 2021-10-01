@@ -90,12 +90,11 @@ scripts:
   post-commit:
       cmd: |
 
-            echo "post-- $TEST"
+            echo "post-- $FOO"
 
       gitHook: post-commit
   pre-commit:
     cmd: |
-      export TEST='hello from pre';
-      echo "pre-- $TEST";
+      source getStagedFiles.sh
 
     gitHook: pre-commit
