@@ -8,5 +8,5 @@ if (!commit.type) {
   console.error("Invalid type");
   Deno.exit(1);
 
-      Math;
+  Math;
 }
