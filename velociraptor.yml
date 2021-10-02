@@ -80,8 +80,8 @@ scripts:
       - vr test
 
   commitlint:
-    # cmd: echo -- ${GIT_ARGS[1]}; echo --- ${GIT_ARGS}
-    # cmd: commitlint -x @commitlint/config-conventional -e
-    # ${GIT_ARGS[1]}
-    cmd: deno run --allow-read="./.git" commitlint.ts
+    cmd: echo --- ${GIT_ARGS}
+    env:
+      VR_LOG: DEBUG
+    # cmd: deno run --allow-read="./.git" commitlint.ts
     gitHook: commit-msg
