@@ -52,7 +52,7 @@ scripts:
   pre-commit:
     desc: Lints and formats staged files
     cmd: |
-      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.{ts}")
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.ts")
           echo "pre-- $FILES"
           echo "$FILES" > .stagedFiles
           echo ".stagedFiles $(cat .stagedFiles)"
