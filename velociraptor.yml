@@ -44,10 +44,10 @@ scripts:
     cmd: |
           touch .stagedFiles
           FILES=$(cat .stagedFiles)
+          rm .stagedFiles
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs git add &&
           git commit -m "format: apply auto format"
-          rm .stagedFiles || exit 0
     gitHook: post-commit
   pre-commit:
     desc: Lints and formats staged files
