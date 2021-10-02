@@ -17,8 +17,7 @@
   // This will install the vscode-deno extension
   "extensions": [
     "denoland.vscode-deno",
-    "umbo.vscode-velociraptor",
-    "ms-azuretools.vscode-docker"
+    "umbo.vscode-velociraptor"
   ],
   "remoteUser": "vscode",
   "onCreateCommand": "vr"

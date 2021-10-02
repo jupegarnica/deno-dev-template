@@ -22,5 +22,3 @@ $ vr
 ```
 
 The scripts are defined in [velociraptor.yml](velociraptor.yml).
-
-[![deploy](https://deno.com/deno-deploy-button.svg)](https://cloudy-owl-71.deno.dev/)
