@@ -15,7 +15,6 @@ ENV PATH="/home/vscode/.deno/bin:$PATH"
 # FIX VR ERROR
 RUN mkdir /home/vscode/.deno/hatcher/
 RUN echo '{"lastUpdateCheck":0}' > /home/vscode/.deno/hatcher/deno.land-velociraptor-_.json
-# RUN echo  $VR_PATH >> ~/.zshrc
-# RUN echo  $VR_PATH >> ~/.bashrc
-
 RUN vr -V
+
+RUN deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -f https://deno.land/x/deploy/deployctl.ts

@@ -14,8 +14,7 @@ scripts:
 
   server:
     desc: Starts deploy server
-    cmd: server.ts
-    watch: true
+    cmd: deployctl run  --watch server.ts
     allow:
       - read
       - net
