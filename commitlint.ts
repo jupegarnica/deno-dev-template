@@ -6,6 +6,6 @@ const text =
 const commit = parse(text);
 
 if (!commit.type) {
-  console.error('Invalid type');
-  Deno.exit(1);
+    console.error('Invalid type');
+   Deno.exit(1);
 }
