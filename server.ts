@@ -15,7 +15,7 @@ async function handleConn(conn: Deno.Conn) {
   }
 }
 
- function handler(request: Request, conn: Deno.Conn) {
+function handler(request: Request, conn: Deno.Conn) {
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({
     href,
