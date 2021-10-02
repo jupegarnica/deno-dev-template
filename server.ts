@@ -15,7 +15,7 @@ async function handleConn(conn: Deno.Conn) {
   }
 }
 
-async function handler(request: Request, conn: Deno.Conn) {
+ function handler(request: Request, conn: Deno.Conn) {
   const { href, origin, host, pathname, hash, search } = new URL(request.url);
   console.log({
     href,
@@ -27,9 +27,9 @@ async function handler(request: Request, conn: Deno.Conn) {
     headers: request.headers,
   });
 
-  const readme = await Deno.readTextFile("./README.md");
+  // const readme = await Deno.readTextFile("./README.md");
 
-  return new Response(readme, {
+  return new Response(`hello ${new Date()}`, {
     headers: {
       "x-localaddr": `${conn.localAddr.hostname}:${conn.localAddr.port}`,
       "x-remoteaddr": `${conn.remoteAddr.hostname}:${conn.remoteAddr.port}`,
