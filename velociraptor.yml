@@ -42,8 +42,8 @@ scripts:
     env:
       VR_HOOKS: "false"
     cmd: |
-          FILES=$(cat .stagedFiles)
-          echo "post-- $FILES"
+          # FILES=$(cat .stagedFiles)
+          # echo "post-- $FILES"
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs git add &&
           git commit -m "format: apply auto format"
@@ -56,9 +56,9 @@ scripts:
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
-          echo "pre-- $FILES"
-          echo "$FILES" > .stagedFiles
-          echo ".stagedFiles $(cat .stagedFiles)"
+          # echo "pre-- $FILES"
+          # echo "$FILES" > .stagedFiles
+          # echo ".stagedFiles $(cat .stagedFiles)"
           # echo "$FILES" | xargs git add
     gitHook: pre-commit
 
