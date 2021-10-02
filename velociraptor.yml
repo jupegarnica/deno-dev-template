@@ -37,27 +37,27 @@ scripts:
     desc: Runs format
     cmd: deno fmt --ignore=cov_profile
 
-  # post-commit:
-  #   desc: Commit formatted files
-  #   env:
-  #     VR_HOOKS: "false"
-  #   cmd: |
-  #         touch .stagedFiles
-  #         FILES=$(cat .stagedFiles)
-  #         rm .stagedFiles
-  #         [ -z "$FILES" ] && exit 0
-  #         echo "$FILES" | xargs git add &&
-  #         git commit -m "format: apply auto format"
-  #   gitHook: post-commit
-  # pre-commit:
-  #   desc: Lints and formats staged files
-  #   cmd: |
-  #     FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.*ts" "*.*js")
-  #         [ -z "$FILES" ] && exit 0
-  #         echo "$FILES" | xargs deno lint
-  #         echo "$FILES" | xargs deno fmt
-  #         echo "$FILES" > .stagedFiles
-  #   gitHook: pre-commit
+  post-commit:
+    desc: Commit formatted files
+    env:
+      VR_HOOKS: "false"
+    cmd: |
+          touch .stagedFiles
+          FILES=$(cat .stagedFiles)
+          rm .stagedFiles
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs git add &&
+          git commit -m "format: apply auto format"
+    gitHook: post-commit
+  pre-commit:
+    desc: Lints and formats staged files
+    cmd: |
+      FILES=$(git diff --staged --name-only --diff-filter=ACMR "*.*ts" "*.*js")
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs deno lint
+          echo "$FILES" | xargs deno fmt
+          echo "$FILES" > .stagedFiles
+    gitHook: pre-commit
 
 
 
@@ -80,6 +80,6 @@ scripts:
       - vr test
 
   commitlint:
-    cmd: echo --- ${GIT_ARGS} ---
-    # cmd: deno run --allow-read="./.git" commitlint.ts
+    # cmd: echo --- ${GIT_ARGS} ---
+    cmd: deno run --allow-read="./.git" commitlint.ts
     gitHook: commit-msg
