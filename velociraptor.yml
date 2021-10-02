@@ -42,7 +42,8 @@ scripts:
     env:
       VR_HOOKS: "false"
     cmd: |
-          FILES=$(cat .stagedFiles || '')
+          touch .stagedFiles
+          FILES=$(cat .stagedFiles)
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs git add &&
           git commit -m "format: apply auto format"
