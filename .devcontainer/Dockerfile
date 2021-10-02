@@ -11,11 +11,11 @@ ENV PATH=${DENO_INSTALL}/bin:${PATH} \
 USER vscode
 RUN deno install -qfAn vr https://deno.land/x/velociraptor/cli.ts
 
-USER root
-RUN ls /usr/local/bin
-RUN mv /home/vscode/.deno/bin/vr /usr/local/bin
+ENV PATH="/home/vscode/.deno/bin:$PATH"
+# FIX VR ERROR
+RUN mkdir /home/vscode/.deno/hatcher/
+RUN echo '{"lastUpdateCheck":0}' > /home/vscode/.deno/hatcher/deno.land-velociraptor-_.json
+# RUN echo  $VR_PATH >> ~/.zshrc
+# RUN echo  $VR_PATH >> ~/.bashrc
 
-
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#    && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN vr -V
