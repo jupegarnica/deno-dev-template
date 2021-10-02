@@ -56,8 +56,8 @@ scripts:
           [ -z "$FILES" ] && exit 0
           echo "$FILES" | xargs deno lint
           echo "$FILES" | xargs deno fmt
-          echo "$FILES" > .stagedFiles
           echo "pre-- $FILES"
+          echo "$FILES" > .stagedFiles
           echo ".stagedFiles. $(cat .stagedFiles)"
           # echo "$FILES" | xargs git add
     gitHook: pre-commit
