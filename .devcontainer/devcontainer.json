@@ -20,5 +20,8 @@
     "umbo.vscode-velociraptor"
   ],
   "remoteUser": "vscode",
-  "onCreateCommand": "vr"
+"onCreateCommand": "vr",
+"features": {
+	"github-cli": "latest"
+}
 }
