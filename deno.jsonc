@@ -1,0 +1,31 @@
+{
+  // "compilerOptions": {
+  //   "allowJs": true,
+  //   "lib": ["deno.window"],
+  //   "strict": true
+  // },
+  // "lint": {
+  //   "files": {
+  //     "include": ["src/"],
+  //     "exclude": ["src/testdata/"]
+  //   },
+  //   "rules": {
+  //     "tags": ["recommended"],
+  //     "include": ["ban-untagged-todo"],
+  //     "exclude": ["no-unused-vars"]
+  //   }
+  // },
+  "fmt": {
+    // "files": {
+    //   "include": ["src/"],
+    //   "exclude": ["src/testdata/"]
+    // },
+    "options": {
+      "lineWidth": 50
+      // "useTabs": false,
+      // "indentWidth": 2,
+      // "singleQuote": true,
+      // "proseWrap": "never"
+    }
+  }
+}
