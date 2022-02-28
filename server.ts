@@ -18,7 +18,7 @@ const handler = async (request: Request, conn: ConnInfo) => {
   if (!isNetAddr(localAddr) || !isNetAddr(remoteAddr)) {
     throw new Error("not net addr");
   }
-  console.log(`${localAddr.hostname}:${localAddr.port}`);
+  // console.log(`${localAddr.hostname}:${localAddr.port}`);
   //console.log(`${remoteAddr.hostname}:${remoteAddr.port}`);
 
   return new Response(readme, {

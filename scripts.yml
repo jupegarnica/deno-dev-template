@@ -12,6 +12,11 @@ scripts:
     desc: Runs main script
     cmd: main.ts
 
+  inspect:
+    desc: Runs main script
+    cmd: main.ts
+    inspect: 127.0.0.1:9229
+
   server:
     desc: Starts deploy server
     cmd: deno run  --watch server.ts

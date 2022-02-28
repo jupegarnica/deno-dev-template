@@ -20,11 +20,20 @@
   },
   "peacock.color": "#3050c4",
   "peacock.remoteColor": "#3050c4",
+
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": true,
   "deno.suggest.imports.hosts": {
     "https://deno.land/": true
   },
-  "deno.config": "./deno.jsonc"
+  "deno.suggest.imports.autoDiscover":true,
+  "deno.config": "./deno.jsonc",
+  "deno.codeLens.implementations": true,
+  "deno.codeLens.references": true,
+  "deno.codeLens.referencesAllFunctions":true,
+  "deno.codeLens.testArgs": [
+    "--allow-all"
+  ],
+  "deno.codeLens.test": true
 }
