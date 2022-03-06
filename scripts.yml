@@ -15,7 +15,7 @@ scripts:
   inspect:
     desc: Runs main script
     cmd: main.ts
-    inspect: 127.0.0.1:9229
+    inspectBrk: 127.0.0.1:9229
 
   server:
     desc: Starts deploy server
@@ -75,8 +75,10 @@ scripts:
     desc: Shows uncovered lists
     cmd:
       - vr test --coverage=cov_profile
-      - deno coverage cov_profile
-
+      - deno coverage --unstable cov_profile --lcov > cov_profile/coverage.lcov
+      - which genhtml || sudo apt install lcov
+      - vr -o coverage/html coverage/coverage.lcov
+      - deno run -A https://deno.land/std/http/file_server.ts coverage/html
   ci:
     desc: Runs lint, check format and test
     cmd:
@@ -88,6 +90,8 @@ scripts:
     # cmd: echo --- ${GIT_ARGS} ---
     cmd: deno run --allow-read="./.git" commitlint.ts
     gitHook: commit-msg
+  # tag:
+  #   cmd: deno run -A --unstable https://deno.land/x/release/release.ts patch
   tag:
     desc: Create tag
     cmd: |
