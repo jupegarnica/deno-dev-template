@@ -77,7 +77,7 @@ scripts:
       - vr test --coverage=cov_profile
       - deno coverage --unstable cov_profile --lcov > cov_profile/coverage.lcov
       - which genhtml || sudo apt install lcov
-      - vr -o coverage/html coverage/coverage.lcov
+      - genhtml -o coverage/html coverage/coverage.lcov
       - deno run -A https://deno.land/std/http/file_server.ts coverage/html
   ci:
     desc: Runs lint, check format and test
