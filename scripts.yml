@@ -74,8 +74,8 @@ scripts:
   cov:
     desc: Shows uncovered lists
     cmd:
-      - vr test --coverage=cov_profile
-      - deno coverage --unstable cov_profile --lcov > cov_profile/coverage.lcov
+      - vr test --coverage=coverage
+      - deno coverage --unstable coverage --lcov > coverage/coverage.lcov
       - which genhtml || sudo apt install lcov
       - genhtml -o coverage/html coverage/coverage.lcov
       - deno run -A https://deno.land/std/http/file_server.ts coverage/html
